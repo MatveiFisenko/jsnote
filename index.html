@@ -3,16 +3,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<script src="lib/jquery/jquery-1.4.2.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="lib/oauth.js"></script>
         <title>New Web Project</title>
     </head>
     <body>
         <h1>New Web Project Page</h1>
 		<div id="works"></div>
-		<script>
-			$('#works').html('it works');
+		<button id="getToken">Токен</button>
 		
+		<button id="userAuth">Авторизация</button> 
+		
+		<script type="text/javascript">
+			$('#works').html('it works');
 			
+			$('#getToken').click(Auth.getRequestToken);
+			
+			$('#userAuth').click(Auth.makeUserAuth);
 			
 		</script>
     </body>
