@@ -12,7 +12,9 @@
 		<div id="works"></div>
 		<button id="getToken">Токен</button>
 		
-		<button id="userAuth">Авторизация</button> 
+		<button id="userAuth">Авторизация</button>
+		
+		<button id="getTags">Теги</button>  
 		
 		<script type="text/javascript">
 			$('#works').html('it works');
@@ -20,6 +22,8 @@
 			$('#getToken').click(Auth.getRequestToken);
 			
 			$('#userAuth').click(Auth.makeUserAuth);
+			
+			$('#getTags').click(E.listNotebooks);
 			
 		</script>
     </body>
