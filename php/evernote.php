@@ -34,6 +34,9 @@ try {
 
 		$data = $noteStore->{$action}($authToken, $filter, 0, 100);
 	}
+	else if ($action === 'getNoteContent') {
+		$data = $noteStore->{$action}($authToken, $_GET['guid']);
+	}
 	else {
 		$data = $noteStore->{$action}($authToken);
 	}
