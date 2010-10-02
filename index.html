@@ -14,7 +14,14 @@
 		
 		<button id="userAuth">Авторизация</button>
 		
-		<button id="getTags">Теги</button>  
+		<button id="getTags">Ноутбуки</button>
+		
+		<div id="notebooks"></div>
+		<br /><br />
+		<div id="notes"></div>
+		
+		<br /><br />
+		<div id="noteContents"></div>    
 		
 		<script type="text/javascript">
 			$('#works').html('it works');
@@ -24,6 +31,10 @@
 			$('#userAuth').click(Auth.makeUserAuth);
 			
 			$('#getTags').click(E.listNotebooks);
+
+			$('#notebooks').click(E.findNotes);
+			
+			$('#notes').click(E.getNoteContent);
 			
 		</script>
     </body>
