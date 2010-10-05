@@ -35,7 +35,8 @@ try {
 		$data = $noteStore->{$action}($authToken, $filter, 0, 100);
 	}
 	else if ($action === 'getNoteContent') {
-		$data = $noteStore->{$action}($authToken, $_POST['guid']);
+		$data['content'] = $noteStore->{$action}($authToken, $_POST['guid']);
+		$data['tags'] = $noteStore->getNoteTagNames($authToken, $_POST['guid']);
 	}
 	else if ($action === 'updateNote') {
 		$note = new edam_type_Note();
@@ -48,6 +49,7 @@ try {
 		}
 
 		$note->title = $_POST['title'];
+		$note->tagNames = $_POST['tags'] ? $_POST['tags'] : array();//because we can not send empty array from js
 		$note->content = '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml.dtd">' .
   			'<en-note>' . $_POST['content'] . '</en-note>';
 
