@@ -16,10 +16,10 @@ $evernoteHost = "sandbox.evernote.com";
 $evernotePort = "80";
 $evernoteScheme = "http";
 
-$authToken = $_GET['oauth_token'];
-$edamShard = $_GET['edam_shard'];
-$module = $_GET['module'];
-$action = $_GET['action'];
+$authToken = $_POST['oauth_token'];
+$edamShard = $_POST['edam_shard'];
+$module = $_POST['module'];
+$action = $_POST['action'];
 
 try {
 	$noteStoreHttpClient =
@@ -29,13 +29,29 @@ try {
 	$noteStore = new NoteStoreClient($noteStoreProtocol, $noteStoreProtocol);
 
 	if ($action === 'findNotes') {
-		$filterData = $_GET['filter'];
+		$filterData = $_POST['filter'];
 		$filter = new edam_notestore_NoteFilter($filterData);
 
 		$data = $noteStore->{$action}($authToken, $filter, 0, 100);
 	}
 	else if ($action === 'getNoteContent') {
-		$data = $noteStore->{$action}($authToken, $_GET['guid']);
+		$data = $noteStore->{$action}($authToken, $_POST['guid']);
+	}
+	else if ($action === 'updateNote') {
+		$note = new edam_type_Note();
+
+		if ($_POST['guid'] === 'createNote') {
+			$action = 'createNote';
+		}
+		else {
+			$note->guid = $_POST['guid'];
+		}
+
+		$note->title = $_POST['title'];
+		$note->content = '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml.dtd">' .
+  			'<en-note>' . $_POST['content'] . '</en-note>';
+
+		$data = $noteStore->{$action}($authToken, $note);
 	}
 	else {
 		$data = $noteStore->{$action}($authToken);
