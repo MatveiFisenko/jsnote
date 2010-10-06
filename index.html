@@ -3,39 +3,64 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel='stylesheet' href='css/main.css' type='text/css' />
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
-		<script type="text/javascript" src="lib/oauth.js"></script>
-        <title>New Web Project</title>
+		<script type="text/javascript" src="lib/evernote.js"></script>
+		<script type="text/javascript" src="lib/tiny_mce/jquery.tinymce.js"></script>
+        <title>jsnote</title>
     </head>
     <body>
-        <h1>New Web Project Page</h1>
-		<div id="works"></div>
-		<button id="getToken">Токен</button>
+    	<div class="test">
+			<div id="works"></div>
 		
-		<button id="userAuth">Авторизация</button>
+			<button id="updateNote">Save</button>
 		
-		<button id="getTags">Ноутбуки</button>
+			<button id="createNote"><img src="im/d/add_note_icon.png" /></button>
+		</div>
 		
-		<div id="notebooks"></div>
-		<br /><br />
-		<div id="notes"></div>
+		<div class="filter">
+			<div class="right notebooks">Notebooks: <div id="notebooks"></div></div>
+			<div class="right tags">Tags: <div id="tags"></div></div>
+			<div class="search">
+				<div class="searchInput">
+					<div class="right searchInputRight"></div> 
+					<div class="right searchInputMiddle">
+						<input type="text" id="searchNotes" />
+					</div>
+					<div class="searchInputLeft"></div>
+				</div> 
+           </div>
+           
+           <div id="notes"></div>
+           
+           <div style="clear: both"></div>
+		</div>
 		
-		<br /><br />
-		<div id="noteContents"></div>    
+		<div id="noteContents"></div>
 		
 		<script type="text/javascript">
-			$('#works').html('it works');
-			
-			$('#getToken').click(Auth.getRequestToken);
-			
-			$('#userAuth').click(Auth.makeUserAuth);
-			
-			$('#getTags').click(E.listNotebooks);
+		$(function(e) {
+			//make on page load
+			$('#notebooks, #tags').click(E.findNotes);
 
-			$('#notebooks').click(E.findNotes);
+			$('#searchNotes').keydown(E.findNotes);
 			
 			$('#notes').click(E.getNoteContent);
+
+			$('#updateNote').click(E.updateNote);
 			
+			$('#createNote').click(E.createNote);
+
+			$('#noteContents').tinymce({
+			      script_url : 'lib/tiny_mce/tiny_mce.js',
+			      theme : "simple",
+			      height: 250
+			});
+
+			E.listTags(e);
+			
+			E.listNotebooks(e);
+		});
 		</script>
     </body>
 </html>

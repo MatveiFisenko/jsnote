@@ -1,0 +1,69 @@
+body, html {
+	margin: 0;
+	padding: 0
+}
+
+
+/* fonts */
+body, input {
+	font-size: 12px;
+}
+
+
+/* formating */
+div.test {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+div.right {
+	float: right;
+}
+
+div.filter {
+	margin-bottom: 10px;
+	padding: 0 5px 5px 5px;
+	border: 1px solid grey;
+}
+
+div.tags {
+	width: 20%;
+	padding: inherit;
+	border-left: 1px solid grey;
+}
+
+div.notebooks {
+	width: 20%;
+}
+
+div.search {
+	width: 58%;
+	margin-bottom: 10px;
+}
+
+div.searchInput {
+	width: 300px;
+}
+
+div.searchInputRight {
+	width: 18px;
+	height: 21px;
+	background: url('../im/d/search_right.png');
+}
+
+div.searchInputLeft {
+	width: 27px;
+	height: 21px;
+	background: url('../im/d/search_left.png');
+}
+
+div.searchInputMiddle > input {
+	border: 0;
+	height: 21px;
+	background: url('../im/d/search_middle.png') repeat-x;
+	width: 255px;
+}
+
+#notes, #tags, #notebooks {
+	cursor: pointer;
+}
