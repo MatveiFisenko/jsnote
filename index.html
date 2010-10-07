@@ -55,12 +55,15 @@
 			$('#noteContents').tinymce({
 			      script_url : 'lib/tiny_mce/tiny_mce.js',
 			      theme : "simple",
-			      height: 250
+			      height: 250,
+			      width: '100%'
 			});
 
 			E.listTags(e);
 			
 			E.listNotebooks(e);
+
+			E._updateSearch();
 		});
 		</script>
     </body>
