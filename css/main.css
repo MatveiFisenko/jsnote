@@ -64,6 +64,6 @@ div.searchInputMiddle > input {
 	width: 255px;
 }
 
-#notes, #tags, #notebooks {
+#notes > span, #tags > span, #notebooks > span {
 	cursor: pointer;
 }
