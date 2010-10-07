@@ -108,3 +108,8 @@ div.notify {
 	border:1px solid #FCEFA1;
 	color:#363636;
 }
+.ui-state-error {
+	border: 1px solid #cd0a0a;
+	background: #fef1ec;
+	color: #cd0a0a;
+}
