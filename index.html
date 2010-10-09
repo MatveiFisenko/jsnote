@@ -12,18 +12,11 @@
         <title>jsnote</title>
     </head>
     <body>
-    	<div class="test">
-			<div id="works"></div>
-		
-			<button id="updateNote">Save</button>
-		
-			<button id="createNote"><img src="im/d/add_note_icon.png" /></button>
-		</div>
-		
+    	<div class="right notebooks">Notebooks: <div id="notebooks"></div></div>
+		<div class="right tags">Tags: <div id="tags"></div></div>
 		<div class="filter">
-			<div class="right notebooks">Notebooks: <div id="notebooks"></div></div>
-			<div class="right tags">Tags: <div id="tags"></div></div>
 			<div class="search">
+				<button id="createNote" class="right ui-corner-all">new</button>
 				<div class="searchInput">
 					<div class="right inProgress"><img src="im/d/spinner_uploading.gif" style="display: none;" /></div>
 					<div class="right searchInputRight"></div> 
@@ -50,8 +43,6 @@
 			
 			$('#notes').click(E.getNoteContent);
 
-			$('#updateNote').click(E.updateNote);
-			
 			$('#createNote').click(E.createNote);
 
 			$('#noteContents').tinymce({
@@ -65,7 +56,7 @@
 			
 			E.listNotebooks(e);
 
-			E._updateSearch();
+			E._updateSearch();//browser can after insert last search string on page load
 		});
 		</script>
     </body>

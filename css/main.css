@@ -11,29 +11,38 @@ body, input {
 
 
 /* formating */
-div.test {
-	text-align: center;
-	margin-bottom: 10px;
+iframe.auth {
+	width: 400px;
+	height: 210px;
+	float: right;
+	border: 1px solid gray;
+	overflow: hidden;
 }
 
-div.right {
+button {
+	background-color: white;
+	border: 1px solid gray;
+}
+
+.right {
 	float: right;
 }
 
 div.filter {
 	margin-bottom: 10px;
-	padding: 0 5px 5px 5px;
-	border: 1px solid grey;
+	padding: 5px;
+	border: 1px solid gray;
 }
 
 div.tags {
 	width: 20%;
-	padding: inherit;
-	border-left: 1px solid grey;
+	padding: 5px;
+	border-left: 1px solid gray;
 }
 
 div.notebooks {
 	width: 20%;
+	padding: 5px;
 }
 
 div.search {
