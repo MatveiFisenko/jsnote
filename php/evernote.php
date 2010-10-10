@@ -61,9 +61,8 @@ try {
 
 	echo json_encode($data);
 } catch (TException $e) {
-	$message = $e->getMessage();
 	//message can be empty
-	if (!$message) $message = $e->parameter;
+	$message = $e->getMessage() ? $e->getMessage() : ($e->parameter ? $e->parameter : get_class($e));
 
 	echo json_encode(array('exception' => $message));
 }
