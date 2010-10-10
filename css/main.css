@@ -83,6 +83,53 @@ div.searchInputMiddle > input {
 	cursor: pointer;
 }
 
+
+/* TABS */
+ul.tabs {
+	list-style: none;
+	margin: 0 !important;
+	padding: 0;
+	height: 26px;
+}
+
+ul.tabs li {
+	float: left;
+	text-indent: 0;
+	padding: 0;
+	margin: 0 1px 0 0;
+	list-style-image: none !important;
+}
+
+/* link inside the tab. */
+ul.tabs a {
+	background-color: white;
+	border: 1px solid gray;
+	border-bottom: 0;
+	-moz-border-radius: 4px 4px 0 0;
+	display: block;
+	height: 24px;
+	line-height: 24px;
+	width: 174px;
+	text-align: center;
+	text-decoration: none;
+	color: #333;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+/* when mouse enters the tab */
+ul.tabs a:hover {
+	background-color: #E0E0E0;
+}
+
+/* active tab uses a class name "current". */
+ul.tabs a.current, ul.tabs a.current:hover {
+	background-color: #D0D0D0;
+	cursor: default;
+	color: #000;
+}
+
+
 /* Notify widget */
 div.notifyContainer {
 	min-width: 10%;
