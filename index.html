@@ -19,28 +19,28 @@
 				<button id="createNote" class="right ui-corner-all">new</button>
 				<div class="searchInput">
 					<div class="right inProgress"><img src="im/d/spinner_uploading.gif" style="display: none;" /></div>
-					<div class="right searchInputRight"></div> 
+					<div class="right searchInputRight"></div>
 					<div class="right searchInputMiddle">
 						<input type="text" id="searchNotes" />
 					</div>
 					<div class="searchInputLeft"></div>
-				</div> 
+				</div>
            </div>
-           
+
            <div id="notes"></div>
-           
+
            <div style="clear: both"></div>
 		</div>
-		
+
 		<div id="noteContents"></div>
-		
+
 		<script type="text/javascript">
 		$(function(e) {
 			//make on page load
 			$('#notebooks, #tags').click(E.findNotes);
 
 			$('#searchNotes').keydown(E.findNotes);
-			
+
 			$('#notes').click(E.getNoteContent);
 
 			$('#createNote').click(E.createNote);
@@ -53,7 +53,7 @@
 			});
 
 			E.listTags(e);
-			
+
 			E.listNotebooks(e);
 
 			E._updateSearch();//browser can after insert last search string on page load
