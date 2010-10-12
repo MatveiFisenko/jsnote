@@ -37,6 +37,7 @@ try {
 	else if ($action === 'getNoteContent') {
 		$data['content'] = $noteStore->{$action}($authToken, $_POST['guid']);
 		$data['tags'] = $noteStore->getNoteTagNames($authToken, $_POST['guid']);
+		$data['guid'] = $_POST['guid'];//tell javascript which note contents arrived
 	}
 	else if ($action === 'updateNote') {
 		$note = new edam_type_Note();
