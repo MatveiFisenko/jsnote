@@ -59,7 +59,7 @@ try {
 		$data = $noteStore->{$action}($authToken, $note);
 	}
 	else if ($action === 'getResourceByHash') {
-		$data = $noteStore->{$action}($authToken, $_GET['guid'], pack("H*", $_GET['hash']), true, false, false);
+		$data = $noteStore->{$action}($authToken, $_GET['guid'], pack('H*', $_GET['hash']), true, false, false);
 //		$data->data->body = base64_encode($data->data->body);//convert binary to string
 		echo $data->data->body;
 		die;
