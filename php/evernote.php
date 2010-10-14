@@ -16,10 +16,12 @@ $evernoteHost = "sandbox.evernote.com";
 $evernotePort = "80";
 $evernoteScheme = "http";
 
-$authToken = $_POST['oauth_token'];
-$edamShard = $_POST['edam_shard'];
-$module = $_POST['module'];
-$action = $_POST['action'];
+$inputData = $_POST ? $_POST : $_GET;
+
+$authToken = $inputData['oauth_token'];
+$edamShard = $inputData['edam_shard'];
+$module = $inputData['module'];
+$action = $inputData['action'];
 
 try {
 	$noteStoreHttpClient =
@@ -55,6 +57,12 @@ try {
   			'<en-note>' . $_POST['content'] . '</en-note>';
 
 		$data = $noteStore->{$action}($authToken, $note);
+	}
+	else if ($action === 'getResourceByHash') {
+		$data = $noteStore->{$action}($authToken, $_GET['guid'], pack("H*", $_GET['hash']), true, false, false);
+//		$data->data->body = base64_encode($data->data->body);//convert binary to string
+		echo $data->data->body;
+		die;
 	}
 	else {
 		$data = $noteStore->{$action}($authToken);
