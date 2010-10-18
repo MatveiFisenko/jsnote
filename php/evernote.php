@@ -38,7 +38,6 @@ try {
 	}
 	else if ($action === 'getNoteContent') {
 		$data['content'] = $noteStore->{$action}($authToken, $_POST['guid']);
-		$data['tags'] = $noteStore->getNoteTagNames($authToken, $_POST['guid']);
 		$data['guid'] = $_POST['guid'];//tell javascript which note contents arrived
 	}
 	else if ($action === 'updateNote') {
@@ -53,11 +52,11 @@ try {
 
 		$note->title = $_POST['title'];
 		$note->tagNames = $_POST['tags'] ? $_POST['tags'] : array();//because we can not send empty array from js
-		$note->content = '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml.dtd">' .
-  			'<en-note>' . $_POST['content'] . '</en-note>';
+		$note->content = $_POST['content'];
 
 		$data = $noteStore->{$action}($authToken, $note);
-		$data->sha1 = $_POST['sha1'];
+
+		$data->contentHash = bin2hex($data->contentHash);
 
 		if ($action === 'createNote') {
 			$data->oldGuid = $_POST['guid'];
