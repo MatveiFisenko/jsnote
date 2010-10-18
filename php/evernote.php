@@ -44,7 +44,7 @@ try {
 	else if ($action === 'updateNote') {
 		$note = new edam_type_Note();
 
-		if ($_POST['guid'] === 'createNote') {
+		if (substr($_POST['guid'], 0, 8) === 'createNo') {
 			$action = 'createNote';
 		}
 		else {
@@ -57,6 +57,11 @@ try {
   			'<en-note>' . $_POST['content'] . '</en-note>';
 
 		$data = $noteStore->{$action}($authToken, $note);
+		$data->sha1 = $_POST['sha1'];
+
+		if ($action === 'createNote') {
+			$data->oldGuid = $_POST['guid'];
+		}
 	}
 	else if ($action === 'getResourceByHash') {
 		$data = $noteStore->{$action}($authToken, $_GET['guid'], pack('H*', $_GET['hash']), true, false, false);
