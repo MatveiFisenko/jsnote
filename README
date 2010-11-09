@@ -1,0 +1,13 @@
+Web frontend for http://www.evernote.com.
+
+The main idea is to build a frontend that isvery fast and easy to use.
+
+Technology.
+Now it uses simple php backend layer to communicate with evernote services.
+But I like very much an idea to use only javascript and nothing more to get/send data to evernote.
+
+Currently it can not be done because javascript thrift implementation do not support binary protocol (the only one evernote supports).
+So we need first to send data via ajax to our php layer, it converts it to binary format, send to evernote, gets data from it and sends it back to our frontend.
+
+When binary protocol will be implemented, it will be possible to send data from browser directly to evernote.
+So, this frontend will require no server-side processing and will exist only as "simple" html file.
