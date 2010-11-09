@@ -1,6 +1,9 @@
 Web frontend for http://www.evernote.com.
+Test version linked with sandbox.evernote.com is here: http://jsnote.opensa.ru.
 
-The main idea is to build a frontend that isvery fast and easy to use.
+Current state: alpha.
+
+The main idea is to build a frontend that is very fast and easy to use.
 
 Technology.
 Now it uses simple php backend layer to communicate with evernote services.
@@ -11,3 +14,32 @@ So we need first to send data via ajax to our php layer, it converts it to binar
 
 When binary protocol will be implemented, it will be possible to send data from browser directly to evernote.
 So, this frontend will require no server-side processing and will exist only as "simple" html file.
+
+
+How to run on own server.
+
+You need to configure apache like this:
+<VirtualHost *:80>
+	ServerName jsnote.com
+	ServerAdmin webmaster@localhost
+
+	DocumentRoot /path/to/jsnote
+
+	#edam php proxy
+	<Directory  /path/to/jsnote>
+		php_admin_value mbstring.func_overload 0
+	</Directory>
+
+	#oauth requests proxy
+	SSLProxyEngine On
+	ProxyPass /evernote/oauth https://sandbox.evernote.com/oauth
+</VirtualHost>
+
+Apache mod_ssl, mod_proxy, mod_proxy_http should be enabled.
+
+That's all.
+
+
+How it works.
+We proxy auth requests via SSLProxyEngine, so auth requests are send by apache directly to evernote servers.
+We proxy data requests via our php backend, so data is send by php script to evernote servers.
