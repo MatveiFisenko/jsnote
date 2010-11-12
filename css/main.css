@@ -28,6 +28,10 @@ button {
 	float: right;
 }
 
+#filterHolder {
+	overflow: auto;
+}
+
 div.filter {
 	margin-bottom: 10px;
 	padding: 5px;

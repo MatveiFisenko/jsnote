@@ -13,6 +13,7 @@
         <title>jsnote</title>
     </head>
     <body>
+    <div id="filterHolder">
     	<div class="right notebooks">Notebooks: <div id="notebooks"></div></div>
 		<div class="right tags">Tags: <div id="tags"></div></div>
 		<div class="filter">
@@ -32,6 +33,7 @@
 
            <div style="clear: both"></div>
 		</div>
+	</div>
 
 		<div id="noteContents"></div>
 
@@ -49,7 +51,7 @@
 			$('#noteContents').tinymce({
 			      script_url : 'lib/tiny_mce/tiny_mce.js',
 			      theme : "simple",
-			      height: 250,
+			      height: 267,
 			      width: '100%',
 			      content_css: 'css/tiny_mce_custom.css'
 			});
@@ -59,6 +61,12 @@
 			E.listNotebooks(e);
 
 			E._updateSearch();//browser can after insert last search string on page load
+
+			//resize filter holder after window resize
+			$(window).resize(function() {
+				$('#filterHolder').height($(window).height() - 300);
+			}).resize();
+
 		});
 		</script>
     </body>
