@@ -34,6 +34,12 @@ div.filter {
 	border: 1px solid gray;
 }
 
+div.filterHeader {
+	height: 21px;
+	line-height: 21px;
+	margin-bottom: 5px;
+}
+
 div.tags {
 	width: 20%;
 	padding: 5px;
@@ -47,7 +53,6 @@ div.notebooks {
 
 div.search {
 	width: 58%;
-	margin-bottom: 10px;
 }
 
 div.searchInput {

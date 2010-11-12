@@ -13,10 +13,16 @@
         <title>jsnote</title>
     </head>
     <body>
-    	<div class="right notebooks">Notebooks: <div id="notebooks"></div></div>
-		<div class="right tags">Tags: <div id="tags"></div></div>
+    	<div class="right notebooks">
+    		<div class="filterHeader">Notebooks:</div>
+    		<div id="notebooks"></div>
+    	</div>
+		<div class="right tags">
+			<div class="filterHeader">Tags:</div>
+			<div id="tags"></div>
+		</div>
 		<div class="filter">
-			<div class="search">
+			<div class="search filterHeader">
 				<button id="createNote" class="right ui-corner-all">new</button>
 				<div class="searchInput">
 					<div class="right inProgress"><img src="im/d/spinner_uploading.gif" style="display: none;" /></div>
