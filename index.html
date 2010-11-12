@@ -13,29 +13,27 @@
         <title>jsnote</title>
     </head>
     <body>
-    	<div class="right notebooks">
-    		<div class="filterHeader">Notebooks:</div>
-    		<div id="notebooks"></div>
-    	</div>
-		<div class="right tags">
-			<div class="filterHeader">Tags:</div>
-			<div id="tags"></div>
-		</div>
-		<div class="filter">
+	    <div>
+	    	<div class="right notebooks filterHeader">Notebooks:</div>
+			<div class="right tags filterHeader">Tags:</div>
 			<div class="search filterHeader">
-				<button id="createNote" class="right ui-corner-all">new</button>
-				<div class="searchInput">
-					<div class="right inProgress"><img src="im/d/spinner_uploading.gif" style="display: none;" /></div>
-					<div class="right searchInputRight"></div>
-					<div class="right searchInputMiddle">
-						<input type="text" id="searchNotes" />
+					<button id="createNote" class="right ui-corner-all">new</button>
+					<div class="searchInput">
+						<div class="right inProgress"><img src="im/d/spinner_uploading.gif" style="display: none;" /></div>
+						<div class="right searchInputRight"></div>
+						<div class="right searchInputMiddle">
+							<input type="text" id="searchNotes" />
+						</div>
+						<div class="searchInputLeft"></div>
 					</div>
-					<div class="searchInputLeft"></div>
-				</div>
-           </div>
+	        </div>
+	        <div style="clear: both"></div>
+	     </div>
 
-           <div id="notes"></div>
-
+		<div class="ui-corner-all" id="filterHolder">
+			<div id="notebooks" class="right notebooks"></div>
+			<div id="tags" class="right tags"></div>
+			<div id="notes"></div>
            <div style="clear: both"></div>
 		</div>
 
@@ -55,7 +53,7 @@
 			$('#noteContents').tinymce({
 			      script_url : 'lib/tiny_mce/tiny_mce.js',
 			      theme : "simple",
-			      height: 250,
+			      height: 267,
 			      width: '100%',
 			      content_css: 'css/tiny_mce_custom.css'
 			});
@@ -65,6 +63,12 @@
 			E.listNotebooks(e);
 
 			E._updateSearch();//browser can after insert last search string on page load
+
+			//resize filter holder after window resize
+			$(window).resize(function() {
+				$('#filterHolder').height($(window).height() - 25 - 15 - 300);
+			}).resize();
+
 		});
 		</script>
     </body>

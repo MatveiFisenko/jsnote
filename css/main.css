@@ -28,27 +28,24 @@ button {
 	float: right;
 }
 
-div.filter {
-	margin-bottom: 10px;
+#filterHolder {
+	overflow: auto;
+	margin-bottom: 5px;
 	padding: 5px;
-	border: 1px solid gray;
+	border: 1px solid #999999;
 }
 
 div.filterHeader {
 	height: 21px;
 	line-height: 21px;
-	margin-bottom: 5px;
 }
 
 div.tags {
 	width: 20%;
-	padding: 5px;
-	border-left: 1px solid gray;
 }
 
 div.notebooks {
 	width: 20%;
-	padding: 5px;
 }
 
 div.search {
