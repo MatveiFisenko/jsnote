@@ -13,27 +13,30 @@
         <title>jsnote</title>
     </head>
     <body>
-    <div id="filterHolder">
-    	<div class="right notebooks">Notebooks: <div id="notebooks"></div></div>
-		<div class="right tags">Tags: <div id="tags"></div></div>
-		<div class="filter">
+	    <div>
+	    	<div class="right notebooks">Notebooks:</div>
+			<div class="right tags">Tags:</div>
 			<div class="search">
-				<button id="createNote" class="right ui-corner-all">new</button>
-				<div class="searchInput">
-					<div class="right inProgress"><img src="im/d/spinner_uploading.gif" style="display: none;" /></div>
-					<div class="right searchInputRight"></div>
-					<div class="right searchInputMiddle">
-						<input type="text" id="searchNotes" />
+					<button id="createNote" class="right ui-corner-all">new</button>
+					<div class="searchInput">
+						<div class="right inProgress"><img src="im/d/spinner_uploading.gif" style="display: none;" /></div>
+						<div class="right searchInputRight"></div>
+						<div class="right searchInputMiddle">
+							<input type="text" id="searchNotes" />
+						</div>
+						<div class="searchInputLeft"></div>
 					</div>
-					<div class="searchInputLeft"></div>
-				</div>
-           </div>
+	        </div>
+	        <div style="clear: both"></div>
+	     </div>
 
-           <div id="notes"></div>
-
+		<div class="ui-corner-all" id="filterHolder">
+			<div id="notebooks" class="right notebooks"></div>
+			<div id="tags" class="right tags"></div>
+			<div id="notes"></div>
            <div style="clear: both"></div>
 		</div>
-	</div>
+
 
 		<div id="noteContents"></div>
 
@@ -64,7 +67,7 @@
 
 			//resize filter holder after window resize
 			$(window).resize(function() {
-				$('#filterHolder').height($(window).height() - 300);
+				$('#filterHolder').height($(window).height() - 25 - 15 - 300);
 			}).resize();
 
 		});
