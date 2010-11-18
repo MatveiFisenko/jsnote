@@ -37,6 +37,8 @@ You need to configure apache like this:
 
 Apache mod_ssl, mod_proxy, mod_proxy_http should be enabled.
 
+Put tiny_mce files in lib/tiny_mce folder. I use 3.9.2 version. No modifications needed.
+
 That's all.
 
 
