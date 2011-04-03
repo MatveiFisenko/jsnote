@@ -41,7 +41,9 @@ A. Apache.
 3. <Proxy *> directive should be disabled or allow connections from your ip, see http://httpd.apache.org/docs/current/mod/mod_proxy.html#proxy .
 
 B. Library.
-1. Put tiny_mce files in lib/tiny_mce folder. I use 3.4.1 version. No modifications needed.
+1. Put tiny_mce files in lib/tiny_mce folder, tiny_mce.js should be reached by 'lib/tiny_mce/tiny_mce.js'.
+I use 3.4.1 version. No modifications needed.
+
 
 That's all.
 
