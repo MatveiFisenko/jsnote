@@ -18,7 +18,8 @@ So, this frontend will require no server-side processing and will exist only as 
 
 How to run on own server.
 
-You need to configure apache like this:
+A. Apache.
+1. Configure apache virtualhost like this:
 <VirtualHost *:80>
 	ServerName jsnote.com
 	ServerAdmin webmaster@localhost
@@ -35,9 +36,12 @@ You need to configure apache like this:
 	ProxyPass /evernote/oauth https://sandbox.evernote.com/oauth
 </VirtualHost>
 
-Apache mod_ssl, mod_proxy, mod_proxy_http should be enabled.
+2. Apache mod_ssl, mod_proxy, mod_proxy_http should be enabled.
 
-Put tiny_mce files in lib/tiny_mce folder. I use 3.9.2 version. No modifications needed.
+3. <Proxy *> directive should be disabled or allow connections from your ip, see http://httpd.apache.org/docs/current/mod/mod_proxy.html#proxy .
+
+B. Library.
+1. Put tiny_mce files in lib/tiny_mce folder. I use 3.4.1 version. No modifications needed.
 
 That's all.
 
